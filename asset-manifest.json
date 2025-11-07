@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tasks-slice-toolkit/static/css/main.109b7540.css",
-    "main.js": "/tasks-slice-toolkit/static/js/main.57616b25.js",
-    "index.html": "/tasks-slice-toolkit/index.html",
-    "main.109b7540.css.map": "/tasks-slice-toolkit/static/css/main.109b7540.css.map",
-    "main.57616b25.js.map": "/tasks-slice-toolkit/static/js/main.57616b25.js.map"
+    "main.css": "/tasks-async/static/css/main.894ab73f.css",
+    "main.js": "/tasks-async/static/js/main.64d4e4eb.js",
+    "index.html": "/tasks-async/index.html",
+    "main.894ab73f.css.map": "/tasks-async/static/css/main.894ab73f.css.map",
+    "main.64d4e4eb.js.map": "/tasks-async/static/js/main.64d4e4eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.109b7540.css",
-    "static/js/main.57616b25.js"
+    "static/css/main.894ab73f.css",
+    "static/js/main.64d4e4eb.js"
   ]
 }
