@@ -1,7 +1,7 @@
 {
   "name": "tasks-redux-toolkit",
   "version": "0.1.0",
-  "homepage": "https://yakov29.github.io/tasks-slice-toolkit/",
+  "homepage": "https://yakov29.github.io/tasks-async/",
   "private": true,
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",

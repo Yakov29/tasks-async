@@ -8,32 +8,62 @@
 }
 
 .header__input {
-  flex-grow: 1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border: 3px solid gray;
+  border-radius: 10px;
 }
+
 
 .header__add-task button {
   margin-left: 8px;
+  background-color: green;
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
 }
 
 .header__filter {
-  display: flex;
+  padding-top: 50px;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.header__filter h3 {
-  margin: 0 8px 0 0;
-  font-size: 1em;
-  font-weight: normal;
+
+.header__filter-title{
+
 }
 
-.header__filter button {
-  margin-left: 8px;
+.header__filter-input{
+  padding:5px;
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
-.header__tasks div {
+
+.header__filter-button{
+  padding: 10px;
+  margin-left: 10px;
+  background-color: chocolate;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.header__tasks-task{
   display: flex;
-  justify-content: space-between;
+  width: 400px;
   align-items: center;
-  padding: 5px 0;
+}
+
+
+.header__tasks-button{
+  display: flex;
+  margin-left: auto;
+  background-color: rgb(160, 0, 0);
+  border: none;
+  color: white;
 }

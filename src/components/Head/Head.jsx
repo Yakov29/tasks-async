@@ -58,24 +58,26 @@ const Head = () => {
       </div>
 
       <form className="header__filter" onSubmit={handleFilter}>
-        <h3>Фільтр</h3>
+        <h3 className="header__filter-title">Фільтр</h3>
         <input
           type="text"
           placeholder="text"
+
+          className="header__filter-input"
           value={filterValue}
           onChange={(e) => setFilterValue(e.target.value)}
         />
-        <button type="submit">Фільтрувати</button>
+        <button className="header__filter-button" type="submit">Фільтрувати</button>
       </form>
 
       <div className="header__tasks">
         {filteredTasks.map((task) => (
           <div
             key={task.id}
-            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+           className="header__tasks-task"
           >
             <span>{task.title}</span>
-            <button onClick={() => handleRemove(task.id)}>✖️</button>
+            <button className="header__tasks-button" onClick={() => handleRemove(task.id)}>X</button>
           </div>
         ))}
       </div>
