@@ -1,51 +1,37 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { addTask, removeTask, filterTask } from "./actions";
+import { createSlice } from "@reduxjs/toolkit";
+import { deleteTask, getTasks, postTask } from "./thunks/thunks";
 
-const initialState = JSON.parse(localStorage.getItem("tasks")) || [];
+const initialState = {
+  tasks: [],
+  isLoading: false,
+  filter: "",
+};
 
-// export const tasksReducer = (state = initialState, action,) => {
-//   switch (action.type) {
-//     case "addTask": {
-//       const newState = [...state, action.payload];
-//       localStorage.setItem("tasks", JSON.stringify(newState));
-//       return newState;
-//     }
-
-//     case "removeTask": {
-//       const newState = state.filter((task) => task.id !== action.payload);
-//       localStorage.setItem("tasks", JSON.stringify(newState));
-//       return newState;
-//     }
-
-//     case "filterTask" : {
-
-//       const oldState = JSON.parse(localStorage.getItem("tasks"))
-//       const newState = oldState.filter((task) => task.title === action.payload);
-//       console.log(action.payload)
-//       return newState
-//     }
-
-//     default:
-//       return state;
-//   }
-// };
-
-export const tasksReducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(addTask, (state, action) => {
-      const newState = [...state, action.payload];
-      localStorage.setItem("tasks", JSON.stringify(newState));
-      return newState;
-    })
-    .addCase(removeTask, (state, action) => {
-      const newState = state.filter((task) => task.id !== action.payload);
-      localStorage.setItem("tasks", JSON.stringify(newState));
-      return newState;
-    })
-    .addCase(filterTask, (state, action) => {
-      const oldState = JSON.parse(localStorage.getItem("tasks"));
-      const newState = oldState.filter((task) => task.title === action.payload);
-      console.log(action.payload);
-      return newState;
-    })
+export const tasksSlice = createSlice({
+  name: "tasks",
+  initialState,
+  reducers: {
+    filterTask: (state, action) => {
+      state.filter = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getTasks.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getTasks.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.tasks = payload;
+      })
+      .addCase(postTask.fulfilled, (state, { payload }) => {
+        state.tasks.push(payload);
+      })
+      .addCase(deleteTask.fulfilled, (state, { payload }) => {
+        state.tasks = state.tasks.filter((task) => task.id !== payload);
+      });
+  },
 });
+
+export const { filterTask: filterTaskAction } = tasksSlice.actions;
+export const tasksReducer = tasksSlice.reducer;
